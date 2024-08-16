@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxiug7gs8aula"]
+
+[ext_resource type="PackedScene" uid="uid://brgenyhui1ybj" path="res://Objects/Qubert.tscn" id="1_rrmbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opmex"]
+size = Vector2(1112, 20)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rfgap"]
+
+[node name="SceneNode" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(573, 614)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_opmex")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor"]
+position = Vector2(-5.96046e-07, 0.499994)
+scale = Vector2(1112, 21)
+mesh = SubResource("QuadMesh_rfgap")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(575, 324)
+
+[node name="Qubert" parent="." instance=ExtResource("1_rrmbb")]
+position = Vector2(341, 524)
+MovementSpeed = 100.0
+JumpStrength = 200.0
