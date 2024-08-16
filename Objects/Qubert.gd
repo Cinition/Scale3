@@ -1,17 +1,22 @@
 extends Node2D
 
 @onready var CB = $CharacterBody2D
+
 @export var MovementSpeed: float = 10
-@export var JumpStrength: float = 100
-@export var Gravity: float = 9.807
+@export var JumpStrength:  float = 100
+@export var Gravity:       float = 9.807
 
 var GoingRight = true
+var IsDead     = false
 
 func _ready() -> void:
 	pass
 
 
 func _physics_process(delta: float) -> void:
+	if IsDead:
+		self.queue_free()
+
 	var velocity = CB.velocity
 
 	# Gravity
@@ -25,6 +30,6 @@ func _physics_process(delta: float) -> void:
 
 	# Move Qubert to the right
 	velocity.x = MovementSpeed if GoingRight else -MovementSpeed
-	
+
 	CB.velocity = velocity
 	CB.move_and_slide()
