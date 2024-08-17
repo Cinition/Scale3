@@ -32,15 +32,18 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("ScaleQubertUp") and CurrentQubertSize == QubertSize.NORMAL:
 		CurrentQubertSize = QubertSize.LARGE
 		ScaledTimer       = ScaledDuration
+		SetQubertTo(QubertSize.LARGE)
 
 	if Input.is_action_pressed("ScaleQubertDown") and CurrentQubertSize == QubertSize.NORMAL:
 		CurrentQubertSize = QubertSize.SMALL
 		ScaledTimer       = ScaledDuration
+		SetQubertTo(QubertSize.SMALL)
 
 	if CurrentQubertSize != QubertSize.NORMAL:
 		ScaledTimer -= delta
 		if ScaledTimer < 0.0:
 			CurrentQubertSize = QubertSize.NORMAL
+			SetQubertTo(QubertSize.NORMAL)
 
 
 func _physics_process(delta: float) -> void:

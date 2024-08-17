@@ -27,4 +27,4 @@ position = Vector2(575, 324)
 position = Vector2(518, 543)
 MovementSpeed = 150.0
 JumpStrength = 500.0
-ScaledDuration = null
+ScaledDuration = 1.4
