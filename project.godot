@@ -15,9 +15,18 @@ run/main_scene="res://Levels/TutorialLevel.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [global_group]
 
 Qubert=""
+
+[gui]
+
+theme/custom_font="res://Asset/Retroscape.ttf"
 
 [input]
 
