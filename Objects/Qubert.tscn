@@ -1,20 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://brgenyhui1ybj"]
+[gd_scene load_steps=5 format=3 uid="uid://brgenyhui1ybj"]
 
-[ext_resource type="Script" path="res://Objects/Qubert.gd" id="1_fguhl"]
+[ext_resource type="Script" path="res://Scripts/Qubert.gd" id="1_fguhl"]
+[ext_resource type="QuadMesh" uid="uid://chq3p388ea6ck" path="res://Asset/NormalQubertMesh.tres" id="3_tk2yd"]
+[ext_resource type="QuadMesh" uid="uid://b2snghn7htjul" path="res://Asset/LargeQubertMesh.tres" id="3_ubi5p"]
+[ext_resource type="QuadMesh" uid="uid://bgtbcgh6xawjc" path="res://Asset/SmallQubertMesh.tres" id="5_5642c"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_gg3p7"]
-size = Vector2(20, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd35p"]
-
-[node name="Qubert" type="Node2D" groups=["Qubert"]]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_fguhl")
+LargeQubertMesh = ExtResource("3_ubi5p")
+NormalQubertMesh = ExtResource("3_tk2yd")
+SmallQubertMesh = ExtResource("5_5642c")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Qubert"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
-mesh = SubResource("QuadMesh_gg3p7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
-shape = SubResource("RectangleShape2D_dd35p")
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]

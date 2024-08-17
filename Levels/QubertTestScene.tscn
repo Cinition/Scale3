@@ -23,7 +23,8 @@ mesh = SubResource("QuadMesh_rfgap")
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(575, 324)
 
-[node name="Qubert" parent="." instance=ExtResource("1_rrmbb")]
-position = Vector2(341, 524)
-MovementSpeed = 100.0
-JumpStrength = 200.0
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_rrmbb")]
+position = Vector2(518, 543)
+MovementSpeed = 150.0
+JumpStrength = 500.0
+ScaledDuration = null
