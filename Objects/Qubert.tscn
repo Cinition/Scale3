@@ -5,7 +5,7 @@
 [ext_resource type="QuadMesh" uid="uid://b2snghn7htjul" path="res://Asset/LargeQubertMesh.tres" id="3_ubi5p"]
 [ext_resource type="QuadMesh" uid="uid://bgtbcgh6xawjc" path="res://Asset/SmallQubertMesh.tres" id="5_5642c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr6hd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4msqu"]
 size = Vector2(30, 30)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -15,7 +15,7 @@ NormalQubertMesh = ExtResource("3_tk2yd")
 SmallQubertMesh = ExtResource("5_5642c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qr6hd")
+shape = SubResource("RectangleShape2D_4msqu")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = ExtResource("3_tk2yd")

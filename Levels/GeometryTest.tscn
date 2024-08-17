@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://buxndjhlk0m5p"]
+[gd_scene load_steps=7 format=3 uid="uid://buxndjhlk0m5p"]
 
 [ext_resource type="PackedScene" uid="uid://brgenyhui1ybj" path="res://Objects/Qubert.tscn" id="1_mrm75"]
 [ext_resource type="PackedScene" uid="uid://cxsa86hlx33j6" path="res://Asset/Geometry/BreakablePlatform_Obstacle.tscn" id="2_smxik"]
 [ext_resource type="PackedScene" uid="uid://dtoxjqhgw5tuv" path="res://Asset/Geometry/Spike_Obstacle.tscn" id="3_om4uh"]
+[ext_resource type="PackedScene" uid="uid://c3ii6afq5o3bt" path="res://Asset/Geometry/JumpPad_Obstacle.tscn" id="4_kr2v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cv0u"]
 size = Vector2(761, 20)
@@ -61,3 +62,6 @@ position = Vector2(72, 559)
 MovementSpeed = 150.0
 JumpStrength = 500.0
 ScaledDuration = 1.4
+
+[node name="JumpPadObstacle" parent="." instance=ExtResource("4_kr2v4")]
+position = Vector2(408, 598)

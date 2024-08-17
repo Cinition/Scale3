@@ -16,6 +16,7 @@ texture = ExtResource("2_xfv41")
 [node name="QubertArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="QubertArea"]
+visible = false
 polygon = PackedVector2Array(-8, 8, 0, -12, 8, 8)
 
 [connection signal="body_entered" from="QubertArea" to="." method="_on_quebert_area_body_entered"]
