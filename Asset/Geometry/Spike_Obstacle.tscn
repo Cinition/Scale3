@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtoxjqhgw5tuv"]
+
+[ext_resource type="Script" path="res://Scripts/Geometry/Spike_Obstacle.gd" id="1_pgdmi"]
+[ext_resource type="Texture2D" uid="uid://s3g21lo8yyqa" path="res://Textures/Spike.png" id="2_xfv41"]
+
+[node name="Spike" type="StaticBody2D"]
+script = ExtResource("1_pgdmi")
+
+[node name="SpikeCollision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, 8, 0, -8, 8, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_xfv41")
+
+[node name="QubertArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="QubertArea"]
+polygon = PackedVector2Array(-8, 8, 0, -12, 8, 8)
+
+[connection signal="body_entered" from="QubertArea" to="." method="_on_quebert_area_body_entered"]

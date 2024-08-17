@@ -1,4 +1,5 @@
 @tool
+class_name Qubert
 extends CharacterBody2D
 
 @onready var CollisionShape = $CollisionShape2D
@@ -24,6 +25,8 @@ var ScaledTimer       = 0.0
 func _ready() -> void:
 	SetQubertTo(QubertSize.NORMAL)
 
+func _kill() -> void:
+	self.queue_free()
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
