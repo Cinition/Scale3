@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxsa86hlx33j6"]
+
+[ext_resource type="Texture2D" uid="uid://7ek2ei0p6old" path="res://Textures/BreakableTile.jpg" id="1_k8ssg"]
+[ext_resource type="Script" path="res://Scripts/Geometry/BreakablePlatform_Obstacle.gd" id="1_vb7kp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqlm8"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjwxy"]
+size = Vector2(16, 18)
+
+[node name="BreakableFloor" type="StaticBody2D"]
+script = ExtResource("1_vb7kp")
+
+[node name="FloorCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yqlm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_k8ssg")
+
+[node name="QubertArea" type="Area2D" parent="."]
+
+[node name="QubertCollision" type="CollisionShape2D" parent="QubertArea"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_vjwxy")
+
+[connection signal="body_entered" from="QubertArea" to="." method="_on_quebert_area_body_entered"]

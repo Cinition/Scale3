@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://buxndjhlk0m5p"]
+
+[ext_resource type="PackedScene" uid="uid://brgenyhui1ybj" path="res://Objects/Qubert.tscn" id="1_mrm75"]
+[ext_resource type="PackedScene" uid="uid://cxsa86hlx33j6" path="res://Asset/Geometry/BreakablePlatform_Obstacle.tscn" id="2_smxik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cv0u"]
+size = Vector2(761, 20)
+
+[sub_resource type="QuadMesh" id="QuadMesh_jijr2"]
+
+[node name="GeometryTest" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(573, 614)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-175.5, 0)
+shape = SubResource("RectangleShape2D_5cv0u")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor"]
+position = Vector2(-174.5, 0.499994)
+scale = Vector2(763, 21)
+mesh = SubResource("QuadMesh_jijr2")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(575, 324)
+
+[node name="Qubert" parent="." instance=ExtResource("1_mrm75")]
+position = Vector2(341, 524)
+MovementSpeed = 100.0
+JumpStrength = 200.0
+
+[node name="BreakableFloor" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(788, 612)
+
+[node name="BreakableFloor2" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(804, 612)
+
+[node name="BreakableFloor3" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(820, 612)
+
+[node name="BreakableFloor4" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(836, 612)
+
+[node name="BreakableFloor5" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(852, 612)
+
+[node name="BreakableFloor6" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(868, 612)
+
+[node name="BreakableFloor7" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(884, 612)
+
+[node name="BreakableFloor8" parent="." instance=ExtResource("2_smxik")]
+position = Vector2(900, 612)
