@@ -16,6 +16,8 @@ extends CharacterBody2D
 @export var JumpStrength:   float
 @export var ScaledDuration: float
 
+signal qubert_died
+
 enum QubertSize {LARGE, NORMAL, SMALL}
 
 var CurrentQubertSize = QubertSize.NORMAL
@@ -26,7 +28,9 @@ func _ready() -> void:
 	SetQubertTo(QubertSize.NORMAL)
 
 func _kill() -> void:
+	qubert_died.emit()
 	self.queue_free()
+	
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():

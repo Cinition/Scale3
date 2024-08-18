@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1crd02cal7xb"]
+
+[ext_resource type="Texture2D" uid="uid://hsn3bdn8ltx3" path="res://Textures/YouLost.png" id="1_8whlc"]
+[ext_resource type="Script" path="res://Scripts/GameOverMenu.gd" id="1_l2j13"]
+[ext_resource type="Texture2D" uid="uid://qldj6aw5rima" path="res://Textures/MainMenu_Button.png" id="3_88ikb"]
+[ext_resource type="FontFile" uid="uid://ciipca21en12g" path="res://Asset/Retroscape.ttf" id="4_0hl8a"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l2j13")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("1_8whlc")
+
+[node name="TryAgainButton" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(564, 358)
+scale = Vector2(1.70985, 2.10728)
+texture = ExtResource("3_88ikb")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/TryAgainButton"]
+process_mode = 2
+offset_left = -93.0
+offset_top = -19.0
+offset_right = 97.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("4_0hl8a")
+theme_override_font_sizes/font_size = 14
+text = "TRY AGAIN"
+flat = true
+metadata/_edit_lock_ = true
+
+[node name="MainMenuButton" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(564, 461)
+scale = Vector2(1.6867, 1.94319)
+texture = ExtResource("3_88ikb")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/MainMenuButton"]
+process_mode = 2
+offset_left = -93.0
+offset_top = -19.0
+offset_right = 97.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("4_0hl8a")
+theme_override_font_sizes/font_size = 14
+text = "MAIN MENU
+"
+flat = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer/TryAgainButton/Button" to="." method="_on_button_tryagain_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenuButton/Button" to="." method="_on_button_mainmenu_pressed"]

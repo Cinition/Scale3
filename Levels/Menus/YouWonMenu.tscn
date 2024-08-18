@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://t0u44pyir7kx"]
+
+[ext_resource type="Script" path="res://Levels/Menus/you_won_menu.gd" id="1_ahxr4"]
+[ext_resource type="Texture2D" uid="uid://c0lf4tg4cqbqa" path="res://Textures/YouWon.png" id="1_cw1r0"]
+[ext_resource type="Texture2D" uid="uid://qldj6aw5rima" path="res://Textures/MainMenu_Button.png" id="2_nkem2"]
+[ext_resource type="FontFile" uid="uid://ciipca21en12g" path="res://Asset/Retroscape.ttf" id="3_y8x8q"]
+
+[node name="YouWon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahxr4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="YouWon" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("1_cw1r0")
+
+[node name="MainMenu" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(571, 422)
+scale = Vector2(1.70985, 2.10728)
+texture = ExtResource("2_nkem2")
+
+[node name="Button" type="Button" parent="CanvasLayer/MainMenu"]
+process_mode = 2
+offset_left = -93.0
+offset_top = -19.0
+offset_right = 97.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("3_y8x8q")
+theme_override_font_sizes/font_size = 14
+text = "MAIN  MENU
+"
+flat = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/Button" to="." method="_on_button_pressed"]
