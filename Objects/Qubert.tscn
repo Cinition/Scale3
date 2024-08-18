@@ -1,21 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://brgenyhui1ybj"]
+[gd_scene load_steps=5 format=3 uid="uid://brgenyhui1ybj"]
 
 [ext_resource type="Script" path="res://Scripts/Qubert.gd" id="1_fguhl"]
+[ext_resource type="AnimationLibrary" uid="uid://bktoivy2oavrs" path="res://Asset/QubertAnimations.tres" id="3_gub3n"]
 [ext_resource type="QuadMesh" uid="uid://chq3p388ea6ck" path="res://Asset/NormalQubertMesh.tres" id="3_tk2yd"]
-[ext_resource type="QuadMesh" uid="uid://b2snghn7htjul" path="res://Asset/LargeQubertMesh.tres" id="3_ubi5p"]
-[ext_resource type="QuadMesh" uid="uid://bgtbcgh6xawjc" path="res://Asset/SmallQubertMesh.tres" id="5_5642c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccrr4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luhhj"]
 size = Vector2(30, 30)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+rotation = 12.5664
 script = ExtResource("1_fguhl")
-LargeQubertMesh = ExtResource("3_ubi5p")
-NormalQubertMesh = ExtResource("3_tk2yd")
-SmallQubertMesh = ExtResource("5_5642c")
+MovementSpeed = 200.0
+JumpStrength = 200.0
+BigJumpStrength = 350.0
+CoyoteTimeDuration = 0.2
+SlidingDuration = 1.5
+SlidingMovementSpeed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ccrr4")
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_luhhj")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, -15)
 mesh = ExtResource("3_tk2yd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"QubertAnimations": ExtResource("3_gub3n")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="OnAnimationFinished"]

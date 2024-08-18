@@ -28,6 +28,4 @@ Target = NodePath("../CharacterBody2D")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_rrmbb")]
 position = Vector2(518, 543)
-MovementSpeed = 150.0
-JumpStrength = 500.0
-ScaledDuration = 1.4
+SlidingMovementSpeed = null
