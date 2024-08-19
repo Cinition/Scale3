@@ -20,6 +20,8 @@ extends CharacterBody2D
 @export var SlidingDuration:      float
 @export var SlidingMovementSpeed: float
 
+signal qubert_died
+
 enum QubertSize      {
 	LARGE,
 	NORMAL,
