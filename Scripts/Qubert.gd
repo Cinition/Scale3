@@ -9,10 +9,12 @@ extends CharacterBody2D
 @export_category("Variables")
 @export var MovementSpeed: float
 @export var JumpStrength:  float
+@export_flags_2d_physics var DefaultCollisionMask
 
 @export_category("Scaled up Variables")
 @export var BigJumpStrength: float
-@export var CoyoteTimeDuration: float
+@export var BigFallingStrength: float
+@export_flags_2d_physics var BigFallingCollisionMask
 
 @export_category("Scaled down Variables")
 @export var SlidingDuration:      float
@@ -40,12 +42,13 @@ var CurrentQubertAnimation    = QubertAnimation.IDLE
 var GoingRight                = true
 var HasAlreadyScaledUpInAir   = false
 var HasAlreadyScaledDownInAir = false
-var AnimationCoyoteEnable     = false
-var AnimationCoyoteTimer      = 0.0
 var SlidingTimer              = 0.0
 
 func _ready() -> void:
-	pass
+	if Engine.is_editor_hint():
+		return
+
+	self.collision_mask = DefaultCollisionMask
 
 
 func _kill() -> void:
@@ -63,24 +66,19 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	print(velocity)
-
 	# Handle gravity
 	if not is_on_floor():
-		if CurrentQubertAnimation != QubertAnimation.BEGINSMALLSLIDE and CurrentQubertAnimation != QubertAnimation.SMALLSLIDE:
+		if CurrentQubertAnimation == QubertAnimation.BEGINSMALLSLIDE or CurrentQubertAnimation == QubertAnimation.SMALLSLIDE:
+			velocity.y = 0
+		elif CurrentQubertAnimation == QubertAnimation.BIGFALLING:
+			velocity.y = BigFallingStrength
+		else:
 			velocity += get_gravity() * delta
 			if velocity.y > 0:
 				if CurrentQubertAnimation == QubertAnimation.BIGJUMP or CurrentQubertAnimation == QubertAnimation.BIGREJUMP:
 					CurrentQubertAnimation = QubertAnimation.BIGFALLING
-					AnimationCoyoteEnable  = true
 				else:
 					CurrentQubertAnimation = QubertAnimation.FALLING
-
-	if AnimationCoyoteEnable == true:
-		if AnimationCoyoteTimer > CoyoteTimeDuration:
-			AnimationCoyoteEnable = false
-		else:
-			AnimationCoyoteTimer += delta
 
 	# Move Qubert to the right
 	if CurrentQubertAnimation == QubertAnimation.BIGFALLING or CurrentQubertAnimation == QubertAnimation.BIGJUMP:
@@ -94,11 +92,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		Jump()
 
-	if Input.is_action_just_pressed("Jump") and CurrentQubertAnimation == QubertAnimation.BIGJUMP or CurrentQubertAnimation == QubertAnimation.BIGREJUMP:
+	# Scale up
+	if Input.is_action_just_pressed("ScaleQubertUp") and is_on_floor():
 		BigJump()
 
-	if Input.is_action_just_pressed("Jump") and CurrentQubertAnimation == QubertAnimation.BIGFALLING and AnimationCoyoteEnable:
-		BigJump()
+	# Scale down
+	if Input.is_action_just_pressed("ScaleQubertDown") and (CurrentQubertAnimation != QubertAnimation.BEGINSMALLSLIDE or CurrentQubertAnimation != QubertAnimation.SMALLSLIDE):
+		CurrentQubertAnimation = QubertAnimation.BEGINSMALLSLIDE
 
 	# Apply velocity
 	move_and_slide()
@@ -109,46 +109,42 @@ func Jump() -> void:
 	CurrentQubertAnimation = QubertAnimation.JUMP
 
 
+func Slam() -> void:
+	velocity.y = -BigJumpStrength
+
+
 func BigJump() -> void:
 	velocity.x = 0.0
 	velocity.y = -BigJumpStrength
-	CurrentQubertAnimation = QubertAnimation.BIGREJUMP
+	CurrentQubertAnimation = QubertAnimation.BIGJUMP
+	if not is_on_floor():
+		HasAlreadyScaledUpInAir = true
 
 
 func HandleAnimation(delta: float) -> void:
-	# Input
-	if Input.is_action_pressed("ScaleQubertUp") and CurrentQubertAnimation != QubertAnimation.BIGJUMP or HasAlreadyScaledUpInAir:
-		if not is_on_floor():
-			HasAlreadyScaledUpInAir = true
-
-		CurrentQubertAnimation = QubertAnimation.BIGJUMP
-
-	if Input.is_action_pressed("ScaleQubertDown") and (CurrentQubertAnimation != QubertAnimation.SMALLSLIDE or HasAlreadyScaledDownInAir or CurrentQubertAnimation != QubertAnimation.BEGINSMALLSLIDE):
-		if not is_on_floor():
-			HasAlreadyScaledDownInAir = true
-
-		CurrentQubertAnimation = QubertAnimation.BEGINSMALLSLIDE
-
 	if CurrentQubertAnimation == QubertAnimation.IDLE:
 		CurrentQubertSize = QubertSize.NORMAL
 		if AnimPlayer.current_animation != "QubertAnimations/IDLE":
 			AnimPlayer.play("QubertAnimations/IDLE")
 
 	if CurrentQubertAnimation == QubertAnimation.BIGJUMP:
-		CurrentQubertSize = QubertSize.LARGE
+		CurrentQubertSize = QubertSize.NORMAL
 		if AnimPlayer.current_animation != "QubertAnimations/BIGJUMP":
 			AnimPlayer.play("QubertAnimations/BIGJUMP")
 
 	if CurrentQubertAnimation == QubertAnimation.BIGFALLING:
+		collision_mask   = BigFallingCollisionMask
 		CurrentQubertSize = QubertSize.LARGE
 		if AnimPlayer.current_animation != "QubertAnimations/BIGFALLING":
 			AnimPlayer.play("QubertAnimations/BIGFALLING")
 
 		if is_on_floor():
 			CurrentQubertAnimation = QubertAnimation.BIGSLAM
+			Slam()
 
 	if CurrentQubertAnimation == QubertAnimation.BIGSLAM:
-		CurrentQubertSize = QubertSize.LARGE
+		collision_mask   = DefaultCollisionMask
+		CurrentQubertSize = QubertSize.NORMAL
 		if AnimPlayer.current_animation != "QubertAnimations/BIGSLAM":
 			AnimPlayer.play("QubertAnimations/BIGSLAM")
 
@@ -191,7 +187,6 @@ func HandleAnimation(delta: float) -> void:
 func OnAnimationFinished(anim_name: StringName) -> void:
 	if anim_name == "QubertAnimations/BIGJUMP":
 		CurrentQubertAnimation = QubertAnimation.BIGFALLING
-		AnimationCoyoteEnable  = true
 
 	if anim_name == "QubertAnimations/BIGSLAM":
 		CurrentQubertAnimation = QubertAnimation.IDLE
