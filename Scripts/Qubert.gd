@@ -74,7 +74,6 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-
 	if is_on_floor():
 		JumpedInAir     = false
 		ScaledUpInAir   = false
