@@ -2,7 +2,7 @@
 
 [sub_resource type="Animation" id="Animation_dql2q"]
 resource_name = "BEGINSMALLSLIDE"
-length = 0.6
+length = 0.4
 step = 0.05
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -11,9 +11,9 @@ tracks/0/path = NodePath("MeshInstance2D:skew")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.6, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.25, 0.6)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.05, -0.007, -0.4, -0.2, 0, 0.1, 0, 0.5, -0.34, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.133, 0.4)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -23,8 +23,8 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.6)
+"points": PackedFloat32Array(1, 0, 0, 0.05, 0, 1.25, -0.1, 0, 0.0661339, -0.378388, 0.5, -0.3, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.166, 0.4)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -34,63 +34,52 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.6)
+"points": PackedFloat32Array(1, 0, 0, 0.05, 0, 1.25, -0.1, 0, 0.1, 0, 0.5, -0.1, 0, 0.1, 0),
+"times": PackedFloat32Array(0, 0.166, 0.4)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:skew")
+tracks/3/path = NodePath("CollisionShape2D:scale:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.6, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.25, 0.6)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.05, 0, 1.6, -0.15, 0, 0.0385545, -0.0137339, 0.9, 0, 0, 0.05, 0, 0.68, -0.1, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.133, 0.2, 0.4)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:scale:x")
+tracks/4/path = NodePath("CollisionShape2D:scale:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.6)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, 0, 0, 0.1, 0, 1.135, -0.0843312, -0.00815034, 0.0465679, 0.0556844, 1.18515, -0.0493959, 0.00899184, 0.05, 0, 0.45, -0.123329, -0.00293967, 0.1, 0),
+"times": PackedFloat32Array(0, 0.133, 0.2, 0.4)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:scale:y")
+tracks/5/path = NodePath("MeshInstance2D:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.6)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-15, 0, 0, 0.088501, -0.0648232, -17.0172, -0.0069443, 0.182755, 0.0214583, -0.172274, -17.9935, -0.0439645, -0.172274, 0.0922859, 2.9629, -6.5, -0.132385, -1.21452, 0, 0),
+"times": PackedFloat32Array(0, 0.133, 0.2, 0.4)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("MeshInstance2D:position:y")
+tracks/6/path = NodePath("CollisionShape2D:position:y")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0, -18.75, -0.25, 0, 0.25, 0, -6.25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.6)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CollisionShape2D:position:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0, -18.75, -0.25, 0, 0.25, 0, -6.25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.6)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-15, 0, 0, 0.11855, -0.0340004, -18, -0.0363627, 0.0412502, 0.01, 0, -18, -0.01, 0, 0.0440447, 0.00734711, -6.66974, -0.1, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.166, 0.2, 0.4)
 }
 
 [sub_resource type="Animation" id="Animation_bbdct"]
@@ -228,18 +217,6 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
 "points": PackedFloat32Array(1.5, 0, 0, 0.05, 0, 0.5, -0.05, 0, 0.05, 0, 1.25, -0.05, 0, 0.05, 0, 0.75, -0.05, 0, 0.05, 0, 1, -0.1, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4)
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/path = NodePath("MeshInstance2D:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1333, 0.4),
-"transitions": PackedFloat32Array(1, 0.210224, 1),
-"update": 0,
-"values": [0.0, 0.0, 6.28319]
 }
 
 [sub_resource type="Animation" id="Animation_3vc0b"]
@@ -391,6 +368,42 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(-4.59479, 0.8),
 "update": 0,
 "values": [0.0, 6.28319]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance2D:skew")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
 }
 
 [sub_resource type="Animation" id="Animation_6lsv5"]

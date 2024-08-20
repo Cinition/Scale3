@@ -1,11 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://brgenyhui1ybj"]
+[gd_scene load_steps=8 format=3 uid="uid://brgenyhui1ybj"]
 
 [ext_resource type="Script" path="res://Scripts/Qubert.gd" id="1_fguhl"]
 [ext_resource type="AnimationLibrary" uid="uid://bktoivy2oavrs" path="res://Assets/QubertAnimations.tres" id="3_gub3n"]
+[ext_resource type="Texture2D" uid="uid://cbkiudqfqnlho" path="res://Assets/Textures/Qubert.png" id="3_i7j5a"]
 [ext_resource type="QuadMesh" uid="uid://chq3p388ea6ck" path="res://Assets/Geometry/QubertMesh.tres" id="3_tk2yd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luhhj"]
 size = Vector2(30, 30)
+
+[sub_resource type="Animation" id="Animation_8pk8j"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_43pr5"]
+_data = {
+"RESET": SubResource("Animation_8pk8j")
+}
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 rotation = 12.5664
@@ -23,15 +43,20 @@ SlidingMovementSpeed = 700.0
 SlidingMovementCurve = 0.15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -6.66974)
+scale = Vector2(0.68, 0.45)
 shape = SubResource("RectangleShape2D_luhhj")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(0, -15)
+texture_filter = 1
+position = Vector2(0, -6.5)
+scale = Vector2(0.5, 0.5)
 mesh = ExtResource("3_tk2yd")
+texture = ExtResource("3_i7j5a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
+"": SubResource("AnimationLibrary_43pr5"),
 "QubertAnimations": ExtResource("3_gub3n")
 }
 
