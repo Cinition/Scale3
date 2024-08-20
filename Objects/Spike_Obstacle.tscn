@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtoxjqhgw5tuv"]
 
-[ext_resource type="Script" path="res://Scripts/Geometry/Spike_Obstacle.gd" id="1_pgdmi"]
-[ext_resource type="Texture2D" uid="uid://s3g21lo8yyqa" path="res://Textures/Spike.png" id="2_xfv41"]
+[ext_resource type="Script" path="res://Scripts/Spike_Obstacle.gd" id="1_pgdmi"]
+[ext_resource type="Texture2D" uid="uid://s3g21lo8yyqa" path="res://Assets/Textures/Spike.png" id="2_xfv41"]
 
 [node name="Spike" type="StaticBody2D"]
 script = ExtResource("1_pgdmi")

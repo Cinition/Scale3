@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Scale3"
-run/main_scene="res://Levels/Menus/MainMenu.tscn"
+run/main_scene="res://Scenes/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,7 +26,7 @@ Qubert=""
 
 [gui]
 
-theme/custom_font="res://Asset/Retroscape.ttf"
+theme/custom_font="res://Assets/Retroscape.ttf"
 
 [input]
 

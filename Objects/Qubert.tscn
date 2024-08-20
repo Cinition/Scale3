@@ -1,68 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://brgenyhui1ybj"]
+[gd_scene load_steps=5 format=3 uid="uid://brgenyhui1ybj"]
 
 [ext_resource type="Script" path="res://Scripts/Qubert.gd" id="1_fguhl"]
-[ext_resource type="AnimationLibrary" uid="uid://bktoivy2oavrs" path="res://Asset/QubertAnimations.tres" id="3_gub3n"]
-[ext_resource type="QuadMesh" uid="uid://chq3p388ea6ck" path="res://Asset/NormalQubertMesh.tres" id="3_tk2yd"]
+[ext_resource type="AnimationLibrary" uid="uid://bktoivy2oavrs" path="res://Assets/QubertAnimations.tres" id="3_gub3n"]
+[ext_resource type="QuadMesh" uid="uid://chq3p388ea6ck" path="res://Assets/Geometry/QubertMesh.tres" id="3_tk2yd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luhhj"]
 size = Vector2(30, 30)
-
-[sub_resource type="Animation" id="Animation_6742s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance2D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MeshInstance2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -15)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_67kux"]
-_data = {
-"RESET": SubResource("Animation_6742s")
-}
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 rotation = 12.5664
 collision_layer = 3
 script = ExtResource("1_fguhl")
-MovementSpeed = 200.0
-JumpStrength = 400.0
+MovementSpeed = 300.0
+JumpStrength = 350.0
 DefaultCollisionMask = 3
-BigJumpStrength = 350.0
-BigFallingStrength = 600.0
+BigJumpStrength = 500.0
+BigFallingStrength = 750.0
+BigJumpMovementSpeed = 100.0
 BigFallingCollisionMask = 1
-SlidingDuration = 1.5
-SlidingMovementSpeed = 300.0
+SlidingDuration = 0.5
+SlidingMovementSpeed = 700.0
+SlidingMovementCurve = 0.15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -74,7 +32,6 @@ mesh = ExtResource("3_tk2yd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_67kux"),
 "QubertAnimations": ExtResource("3_gub3n")
 }
 

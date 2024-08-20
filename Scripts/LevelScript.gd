@@ -4,8 +4,8 @@ extends Node2D
 @onready var Goal = $Goal
 @onready var Camera = $Camera
 
-const GameOverMenu = preload("res://Levels/Menus/GameOverMenu.tscn")
-const GameWonMenu = preload("res://Levels/Menus/YouWonMenu.tscn")
+const GameOverMenu = preload("res://Scenes/Menus/GameOverMenu.tscn")
+const GameWonMenu = preload("res://Scenes/Menus/YouWonMenu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

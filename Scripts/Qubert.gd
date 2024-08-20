@@ -6,20 +6,23 @@ extends CharacterBody2D
 @onready var MeshInstance   = $MeshInstance2D
 @onready var AnimPlayer     = $AnimationPlayer
 
-@export_category("Variables")
+@export_subgroup("Variables")
 @export var MovementSpeed: float
 @export var JumpStrength:  float
 @export_flags_2d_physics var DefaultCollisionMask
 
-@export_category("Scaled up Variables")
+@export_subgroup("Scaled up Variables")
 @export var BigJumpStrength: float
 @export var BigFallingStrength: float
+@export var BigJumpMovementSpeed: float
 @export_flags_2d_physics var BigFallingCollisionMask
 
-@export_category("Scaled down Variables")
+@export_subgroup("Scaled down Variables")
 @export var SlidingDuration:      float
 @export var SlidingMovementSpeed: float
+@export_exp_easing var SlidingMovementCurve = 1.0
 
+@warning_ignore("unused_signal") # Used by UI
 signal qubert_died
 
 enum QubertSize      {
@@ -39,12 +42,15 @@ enum QubertAnimation {
 	IDLE
 }
 
-var CurrentQubertSize         = QubertSize.NORMAL
-var CurrentQubertAnimation    = QubertAnimation.IDLE
-var GoingRight                = true
-var HasAlreadyScaledUpInAir   = false
-var HasAlreadyScaledDownInAir = false
-var SlidingTimer              = 0.0
+var CurrentQubertSize      = QubertSize.NORMAL
+var CurrentQubertAnimation = QubertAnimation.IDLE
+var GoingRight             = true
+var SlidingTimer           = 0.0
+var JumpedInAir            = false
+var ScaledUpInAir          = false
+var ScaledDownInAir        = false
+var RequestSpeed           = 0.0
+var CaptureMovementSpeed   = 0.0
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -68,12 +74,21 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
+
+	if is_on_floor():
+		JumpedInAir     = false
+		ScaledUpInAir   = false
+		ScaledDownInAir = false
+
 	# Handle gravity
 	if not is_on_floor():
 		if CurrentQubertAnimation == QubertAnimation.BEGINSMALLSLIDE or CurrentQubertAnimation == QubertAnimation.SMALLSLIDE:
-			velocity.y = 0
+			if velocity.y < 0:
+				velocity += get_gravity() * delta
+			else:
+				velocity.y = 0
 		elif CurrentQubertAnimation == QubertAnimation.BIGFALLING:
-			velocity.y = BigFallingStrength
+			velocity.y += BigFallingStrength
 		else:
 			velocity += get_gravity() * delta
 			if velocity.y > 0:
@@ -83,24 +98,46 @@ func _physics_process(delta: float) -> void:
 					CurrentQubertAnimation = QubertAnimation.FALLING
 
 	# Move Qubert to the right
-	if CurrentQubertAnimation == QubertAnimation.BIGFALLING or CurrentQubertAnimation == QubertAnimation.BIGJUMP:
-		velocity.x = 0.0
+	if CurrentQubertAnimation == QubertAnimation.BIGFALLING:
+		RequestSpeed = 0.0
+	elif CurrentQubertAnimation == QubertAnimation.BIGJUMP:
+		CaptureMovementSpeed = lerpf(CaptureMovementSpeed, BigJumpMovementSpeed, 0.01)
+		RequestSpeed = CaptureMovementSpeed if GoingRight else -CaptureMovementSpeed
 	elif CurrentQubertAnimation == QubertAnimation.SMALLSLIDE:
-		velocity.x = SlidingMovementSpeed if GoingRight else -SlidingMovementSpeed
-	else:
-		velocity.x = MovementSpeed if GoingRight else -MovementSpeed
+		var easedValue = ease(SlidingTimer / SlidingDuration, SlidingMovementCurve)
+		var speed      = MovementSpeed + (SlidingMovementSpeed - MovementSpeed) * easedValue
+		RequestSpeed   = speed if GoingRight else -speed
+	elif is_on_floor():
+		RequestSpeed = MovementSpeed if GoingRight else -MovementSpeed
 
 	# Handle jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		Jump()
 
+	if Input.is_action_just_pressed("Jump") and JumpedInAir == false:
+		JumpedInAir = true
+		Jump()
+
 	# Scale up
-	if Input.is_action_just_pressed("ScaleQubertUp") and is_on_floor():
-		BigJump()
+	if Input.is_action_just_pressed("ScaleQubertUp") and (CurrentQubertAnimation != QubertAnimation.BIGJUMP and CurrentQubertAnimation != QubertAnimation.BIGFALLING ):
+		if is_on_floor():
+			BigJump()
+			CaptureMovementSpeed = RequestSpeed
+		elif ScaledUpInAir == false:
+			BigJump()
+			ScaledUpInAir = true
+			CaptureMovementSpeed = RequestSpeed
 
 	# Scale down
-	if Input.is_action_just_pressed("ScaleQubertDown") and (CurrentQubertAnimation != QubertAnimation.BEGINSMALLSLIDE or CurrentQubertAnimation != QubertAnimation.SMALLSLIDE):
-		CurrentQubertAnimation = QubertAnimation.BEGINSMALLSLIDE
+	if Input.is_action_just_pressed("ScaleQubertDown") and (CurrentQubertAnimation != QubertAnimation.BEGINSMALLSLIDE and CurrentQubertAnimation != QubertAnimation.SMALLSLIDE):
+		if is_on_floor():
+			CurrentQubertAnimation = QubertAnimation.BEGINSMALLSLIDE
+		elif ScaledDownInAir == false:
+			CurrentQubertAnimation = QubertAnimation.BEGINSMALLSLIDE
+			ScaledDownInAir = true
+
+	# lerp to velocity
+	velocity.x = lerpf(velocity.x, RequestSpeed, 0.05)
 
 	# Apply velocity
 	move_and_slide()
@@ -112,15 +149,13 @@ func Jump() -> void:
 
 
 func Slam() -> void:
-	velocity.y = -BigJumpStrength
+	velocity.y = -JumpStrength
 
 
 func BigJump() -> void:
 	velocity.x = 0.0
 	velocity.y = -BigJumpStrength
 	CurrentQubertAnimation = QubertAnimation.BIGJUMP
-	if not is_on_floor():
-		HasAlreadyScaledUpInAir = true
 
 
 func HandleAnimation(delta: float) -> void:
@@ -179,10 +214,13 @@ func HandleAnimation(delta: float) -> void:
 
 		if self.is_on_wall():
 			CurrentQubertAnimation = QubertAnimation.IDLE
-			
+
 		if SlidingTimer > SlidingDuration:
-			CurrentQubertAnimation = QubertAnimation.IDLE
-		
+			if is_on_floor():
+				Jump()
+			else:
+				CurrentQubertAnimation = QubertAnimation.IDLE
+
 		SlidingTimer += delta
 
 
@@ -192,16 +230,12 @@ func OnAnimationFinished(anim_name: StringName) -> void:
 
 	if anim_name == "QubertAnimations/BIGSLAM":
 		CurrentQubertAnimation = QubertAnimation.IDLE
-		pass
 
 	if anim_name == "QubertAnimations/BEGINSMALLSLIDE":
 		CurrentQubertAnimation = QubertAnimation.SMALLSLIDE
-		pass
 
 	if anim_name == "QubertAnimations/SMALLSLIDE":
 		CurrentQubertAnimation = QubertAnimation.IDLE
-		pass
-		
+
 	if anim_name == "QubertAnimations/JUMP":
 		CurrentQubertAnimation = QubertAnimation.IDLE
-		pass

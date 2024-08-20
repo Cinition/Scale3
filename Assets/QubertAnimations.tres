@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=10 format=3 uid="uid://bktoivy2oavrs"]
+[gd_resource type="AnimationLibrary" load_steps=9 format=3 uid="uid://bktoivy2oavrs"]
 
 [sub_resource type="Animation" id="Animation_dql2q"]
 resource_name = "BEGINSMALLSLIDE"
@@ -24,7 +24,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.251709, 0.6)
+"times": PackedFloat32Array(0, 0.25, 0.6)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -35,7 +35,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.251709, 0.6)
+"times": PackedFloat32Array(0, 0.25, 0.6)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -57,7 +57,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.251709, 0.6)
+"times": PackedFloat32Array(0, 0.25, 0.6)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -68,7 +68,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.25, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.251709, 0.6)
+"times": PackedFloat32Array(0, 0.25, 0.6)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
@@ -79,7 +79,7 @@ tracks/6/loop_wrap = true
 tracks/6/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0, -18.75, -0.25, 0, 0.25, 0, -6.25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.248646, 0.6)
+"times": PackedFloat32Array(0, 0.25, 0.6)
 }
 tracks/7/type = "bezier"
 tracks/7/imported = false
@@ -90,10 +90,47 @@ tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0, -18.75, -0.25, 0, 0.25, 0, -6.25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.248646, 0.6)
+"times": PackedFloat32Array(0, 0.25, 0.6)
 }
 
 [sub_resource type="Animation" id="Animation_bbdct"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 1.5)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance2D:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.03, 0, 1, -0.03, 0, 0.03, 0, -1, -0.03, 0, 0.03, 0, 0, -0.03, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.066, 0.132, 0.2)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_hhw0l"]
 length = 0.5
@@ -116,10 +153,10 @@ tracks/1/path = NodePath("MeshInstance2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.12, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.12, 1.5, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5)]
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(0.8, 1.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -133,10 +170,77 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, -15), Vector2(0, -22.4)]
 }
-
-[sub_resource type="Animation" id="Animation_xcb0n"]
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance2D:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_igk7a"]
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-22.5, 0, 0, 0.05, 0, -7.5, -0.05, 0, 0.05, 0, -18.75, -0.05, 0, 0.05, 0, -11.25, -0.05, 0, 0.05, 0, -15, -0.1, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance2D:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 3, 0, 0),
+"points": PackedFloat32Array(0.8, 0, 0, 0.01, 0, 2, -0.0420103, -0.00873017, 0.0499769, -0.000793695, 0.75, -0.05, 0, 0.05, 0, 1.25, -0.05, 0, 0.05, 0, 1, -0.1, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance2D:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.5, 0, 0, 0.05, 0, 0.5, -0.05, 0, 0.05, 0, 1.25, -0.05, 0, 0.05, 0, 0.75, -0.05, 0, 0.05, 0, 1, -0.1, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("MeshInstance2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1333, 0.4),
+"transitions": PackedFloat32Array(1, 0.210224, 1),
+"update": 0,
+"values": [0.0, 0.0, 6.28319]
+}
 
 [sub_resource type="Animation" id="Animation_3vc0b"]
 loop_mode = 1
@@ -215,75 +319,78 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MeshInstance2D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CollisionShape2D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ly8ym"]
-length = 0.75
+length = 0.4
 step = 0.05
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance2D:mesh:size:x")
+tracks/0/path = NodePath("MeshInstance2D:scale:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(30, -0.25, 0, 0.25, -15, 15, -0.25, 0, 0.25, 0, 30, -0.25, -15, 0.05, 22, 50, -0.015, 1, 0, 0, 30, -0.009, 20, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.65, 0.75)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1.25, 0, 0, 0.130236, -0.00384617, 0.8, -0.05, 0, 0.05, 0, 1.1, -0.078, 0, 0.078, 0, 1, -0.1, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.4)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance2D:mesh:size:y")
+tracks/1/path = NodePath("MeshInstance2D:scale:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(30, 0, 0, 0.049822, -22, 10, -0.015, 1, 0.0364126, -1, 30, -0.00908494, -20, 0, 0),
-"times": PackedFloat32Array(0.6, 0.65, 0.75)
+"points": PackedFloat32Array(0.5, 0, 0, 0.05, 0, 1.2, -0.05, 0, 0.1, 0, 1, -0.05, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.12, 0.4)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:shape:size:x")
+tracks/2/path = NodePath("MeshInstance2D:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(30, -0.25, 0, 0.25, -15, 15, -0.25, 0, 0.25, 0, 30, -0.25, -15, 0.05, 22, 50, -0.015, 1, 0, 0, 30, -0.009, 20, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.65, 0.75)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-7.5, 0, 0, 0.05, 0, -18, -0.05, 0, 0.16, 0, -15, -0.08, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.12, 0.4)
 }
-tracks/3/type = "bezier"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:shape:size:y")
+tracks/3/path = NodePath("MeshInstance2D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(30, -0.236804, 21, 0.049822, -22, 10, -0.015, 1, 0.0364126, -1, 30, -0.00908494, -20, 0.25, 0),
-"times": PackedFloat32Array(0.6, 0.65, 0.75)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MeshInstance2D:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-15, 0, 2, 0.021, 4, -5, -0.012, 0, 0.02, 0, -15, -0.012, 12.2, 0, 0),
-"times": PackedFloat32Array(0.6, 0.650351, 0.75)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CollisionShape2D:position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-15, 0, 2, 0.021, 4, -5, -0.012, 0, 0.02, 0, -15, -0.012, 12.2, 0, 0),
-"times": PackedFloat32Array(0.6, 0.650351, 0.75)
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-4.59479, 0.8),
+"update": 0,
+"values": [0.0, 6.28319]
 }
 
 [sub_resource type="Animation" id="Animation_6lsv5"]
@@ -293,7 +400,6 @@ _data = {
 "BEGINSMALLSLIDE": SubResource("Animation_dql2q"),
 "BIGFALLING": SubResource("Animation_bbdct"),
 "BIGJUMP": SubResource("Animation_hhw0l"),
-"BIGREJUMP": SubResource("Animation_xcb0n"),
 "BIGSLAM": SubResource("Animation_igk7a"),
 "FALLING": SubResource("Animation_3vc0b"),
 "IDLE": SubResource("Animation_w2tjs"),

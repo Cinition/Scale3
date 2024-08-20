@@ -23,4 +23,4 @@ func _on_button_pressed_levels() -> void:
 
 
 func _on_button_pressed_tutorial() -> void:
-	get_tree().change_scene_to_file("res://Levels/TutorialLevel.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialLevel.tscn")

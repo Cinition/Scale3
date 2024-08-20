@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://derfrvaepxar1"]
 
-[ext_resource type="Script" path="res://Levels/Menus/main_menu.gd" id="1_6qdea"]
-[ext_resource type="Texture2D" uid="uid://c4w2vcqscbirg" path="res://Textures/MainMenu.png" id="1_smh4k"]
-[ext_resource type="Texture2D" uid="uid://qldj6aw5rima" path="res://Textures/MainMenu_Button.png" id="2_rrv1u"]
-[ext_resource type="FontFile" uid="uid://ciipca21en12g" path="res://Asset/Retroscape.ttf" id="3_1ddtq"]
+[ext_resource type="Script" path="res://Scenes/Menus/main_menu.gd" id="1_6qdea"]
+[ext_resource type="Texture2D" uid="uid://c4w2vcqscbirg" path="res://Assets/Textures/MainMenu.png" id="1_smh4k"]
+[ext_resource type="Texture2D" uid="uid://qldj6aw5rima" path="res://Assets/Textures/MainMenu_Button.png" id="2_rrv1u"]
+[ext_resource type="FontFile" uid="uid://ciipca21en12g" path="res://Assets/Retroscape.ttf" id="3_1ddtq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hevt0"]
 

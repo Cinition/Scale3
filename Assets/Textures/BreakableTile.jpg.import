@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4c4fvesglndo"
-path="res://.godot/imported/Tile.png-a3076d311360f565b2fc6ab3f16b8e8b.ctex"
+uid="uid://7ek2ei0p6old"
+path="res://.godot/imported/BreakableTile.jpg-c9ceed81453efa009f4a6b8af1b26403.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Tile.png"
-dest_files=["res://.godot/imported/Tile.png-a3076d311360f565b2fc6ab3f16b8e8b.ctex"]
+source_file="res://Assets/Textures/BreakableTile.jpg"
+dest_files=["res://.godot/imported/BreakableTile.jpg-c9ceed81453efa009f4a6b8af1b26403.ctex"]
 
 [params]
 

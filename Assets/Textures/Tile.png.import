@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1j3n3xadmfn7"
-path="res://.godot/imported/JumpPad.png-43d5d310aee27c42bc8dd3b4409ec124.ctex"
+uid="uid://c4c4fvesglndo"
+path="res://.godot/imported/Tile.png-9e511df89e855b10e99b5f116e02ef93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/JumpPad.png"
-dest_files=["res://.godot/imported/JumpPad.png-43d5d310aee27c42bc8dd3b4409ec124.ctex"]
+source_file="res://Assets/Textures/Tile.png"
+dest_files=["res://.godot/imported/Tile.png-9e511df89e855b10e99b5f116e02ef93.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ciipca21en12g"
-path="res://.godot/imported/Retroscape.ttf-a398f39afe9d7af43906f901b10f72d0.fontdata"
+path="res://.godot/imported/Retroscape.ttf-424aa6506493afc6d9d84bbebc9c7b24.fontdata"
 
 [deps]
 
-source_file="res://Asset/Retroscape.ttf"
-dest_files=["res://.godot/imported/Retroscape.ttf-a398f39afe9d7af43906f901b10f72d0.fontdata"]
+source_file="res://Assets/Retroscape.ttf"
+dest_files=["res://.godot/imported/Retroscape.ttf-424aa6506493afc6d9d84bbebc9c7b24.fontdata"]
 
 [params]
 

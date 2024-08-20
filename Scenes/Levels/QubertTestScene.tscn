@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxiug7gs8aula"]
 
-[ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_5cyvt"]
-[ext_resource type="PackedScene" uid="uid://brgenyhui1ybj" path="res://Objects/Qubert.tscn" id="1_rrmbb"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_cjklt"]
+[ext_resource type="PackedScene" uid="uid://brgenyhui1ybj" path="res://Objects/Qubert.tscn" id="2_aq0aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opmex"]
 size = Vector2(1112, 20)
@@ -23,8 +23,9 @@ mesh = SubResource("QuadMesh_rfgap")
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("Target")]
 position = Vector2(575, 324)
-script = ExtResource("1_5cyvt")
+script = ExtResource("1_cjklt")
 Target = NodePath("../CharacterBody2D")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_rrmbb")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_aq0aa")]
 position = Vector2(518, 543)
+SlidingMovementCurve = null

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxsa86hlx33j6"]
 
-[ext_resource type="Texture2D" uid="uid://7ek2ei0p6old" path="res://Textures/BreakableTile.jpg" id="1_k8ssg"]
-[ext_resource type="Script" path="res://Scripts/Geometry/BreakablePlatform_Obstacle.gd" id="1_vb7kp"]
+[ext_resource type="Script" path="res://Scripts/BreakablePlatform_Obstacle.gd" id="1_v305i"]
+[ext_resource type="Texture2D" uid="uid://7ek2ei0p6old" path="res://Assets/Textures/BreakableTile.jpg" id="2_1sjs8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqlm8"]
 size = Vector2(16, 16)
@@ -11,14 +11,14 @@ size = Vector2(20, 32)
 
 [node name="BreakableFloor" type="StaticBody2D"]
 collision_layer = 2
-script = ExtResource("1_vb7kp")
+script = ExtResource("1_v305i")
 
 [node name="FloorCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yqlm8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_k8ssg")
+texture = ExtResource("2_1sjs8")
 
 [node name="QubertArea" type="Area2D" parent="."]
 

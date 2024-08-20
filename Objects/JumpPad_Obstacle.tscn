@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ii6afq5o3bt"]
+[gd_scene load_steps=5 format=3 uid="uid://ne7wk70du6ja"]
 
-[ext_resource type="Texture2D" uid="uid://b1j3n3xadmfn7" path="res://Textures/JumpPad.png" id="1_du1y4"]
-[ext_resource type="Script" path="res://Scripts/Geometry/JumpPad_Obstacle.gd" id="1_xr6f7"]
+[ext_resource type="Script" path="res://Scripts/JumpPad_Obstacle.gd" id="1_qunej"]
+[ext_resource type="Texture2D" uid="uid://b1j3n3xadmfn7" path="res://Assets/Textures/JumpPad.png" id="2_0cv63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sjfg"]
 size = Vector2(16, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lw7g"]
-size = Vector2(12, 3)
+size = Vector2(16, 10)
 
 [node name="JumpPadObstacle" type="StaticBody2D"]
-script = ExtResource("1_xr6f7")
+script = ExtResource("1_qunej")
+LaunchStrength = 800.0
 
 [node name="FloorCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.5)
@@ -18,12 +19,12 @@ shape = SubResource("RectangleShape2D_1sjfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_du1y4")
+texture = ExtResource("2_0cv63")
 
 [node name="QubertArea" type="Area2D" parent="."]
 
 [node name="QubertCollision" type="CollisionShape2D" parent="QubertArea"]
-position = Vector2(0, 4.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_7lw7g")
 
 [connection signal="body_entered" from="QubertArea" to="." method="_on_qubert_area_body_entered"]

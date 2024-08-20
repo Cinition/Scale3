@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1crd02cal7xb"]
 
-[ext_resource type="Texture2D" uid="uid://hsn3bdn8ltx3" path="res://Textures/YouLost.png" id="1_8whlc"]
+[ext_resource type="Texture2D" uid="uid://hsn3bdn8ltx3" path="res://Assets/Textures/YouLost.png" id="1_8whlc"]
 [ext_resource type="Script" path="res://Scripts/GameOverMenu.gd" id="1_l2j13"]
-[ext_resource type="Texture2D" uid="uid://qldj6aw5rima" path="res://Textures/MainMenu_Button.png" id="3_88ikb"]
-[ext_resource type="FontFile" uid="uid://ciipca21en12g" path="res://Asset/Retroscape.ttf" id="4_0hl8a"]
+[ext_resource type="Texture2D" uid="uid://qldj6aw5rima" path="res://Assets/Textures/MainMenu_Button.png" id="3_88ikb"]
+[ext_resource type="FontFile" uid="uid://ciipca21en12g" path="res://Assets/Retroscape.ttf" id="4_0hl8a"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
